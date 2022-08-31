@@ -1,0 +1,33 @@
+      <table class="table w-100 m-auto">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Años de experiencia</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each participantsAdminListData}}
+          <tr>
+            <th scope="row">{{this.id}}</th>
+            <td><div class="box"><img src="/assets/img/data/{{{this.foto}}}" alt=""></div></td>
+            <td>{{this.nombre}}</td>
+            <td>{{this.anos_experiencia}}</td>  
+            <td>{{this.especialidad}}</td>
+            {{#if this.estado }}
+              <td class="text-success font-weight-bold"><input type="checkbox" id="{{{this.id}}}" checked onclick="clickCheckBoxDetect(this)"></td>
+            {{else}}
+              <td class="text-success font-weight-bold"><input type="checkbox" id="{{{this.id}}}" unchecked onclick="clickCheckBoxDetect(this)"></td>
+            {{/if}}
+            <td>
+              <button type="button" class="btn btn-primary btn-sm">Actualizar</button>
+              <button type="button" class="btn btn-danger btn-sm">Eliminar Cuenta</button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
